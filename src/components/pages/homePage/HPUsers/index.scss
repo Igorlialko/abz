@@ -1,0 +1,50 @@
+@import "src/styles/variables";
+
+.hp-users {
+  .hp-users__container {
+    margin-top: 140px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  &__title {
+    max-width: 80%;
+    text-align: center;
+  }
+
+  &__container-for-cont {
+    margin: 21px 0 50px;
+  }
+
+  &__cards {
+    position: relative;
+    width: 100%;
+    margin-top: 29px;
+    display: grid;
+    grid-template-columns: repeat(3, minmax(370px, 1fr));
+    gap: 29px;
+  }
+
+  &__button {
+    min-width: 120px;
+  }
+}
+
+@media(max-width: $md1) {
+  .hp-users {
+    &__cards {
+      grid-template-columns: repeat(2, minmax(344px, 1fr));
+      gap: 16px;
+    }
+  }
+}
+
+@media(max-width: $md3) {
+  .hp-users {
+    &__cards {
+      grid-template-columns: repeat(1, minmax(328px, 1fr));
+      gap: 20px;
+    }
+  }
+}

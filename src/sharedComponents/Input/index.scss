@@ -1,0 +1,70 @@
+.global-input{
+  width: 100%;
+  position: relative;
+
+  input::-webkit-outer-spin-button,
+  input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+  }
+  /* Firefox */
+  input[type=number] {
+    -moz-appearance: textfield;
+  }
+  &__input{
+    width: 100%;
+    height: 54px;
+    padding: 14px 16px;
+    background: var(--background);
+    border: 1px solid var(--borderGray);
+    border-radius: 4px;
+  }
+
+  &__label{
+    color: rgba(126, 126, 126, 1);
+    &:before{
+      content: attr(data-label);
+      position: absolute;
+      left: 16px;
+      top:50%;
+      transform: translate(0,-50%);
+      display: inline-block;
+      pointer-events: none;
+      background: var(--background);
+      z-index: 1;
+      transition: all 0.3s ease-in-out;
+
+    }
+    &:after{
+      content: attr(data-helperText);
+      position: absolute;
+      display: inline-block;
+      left:16px;
+      bottom: -4px;
+      transform: translate(0,100%);
+      font-size: 12px;
+      line-height: 14px;
+    }
+  }
+  input:focus + label:before,
+  .value:before{
+    font-size: 12px;
+    line-height: 14px;
+    top:0;
+    left: 14px;
+    padding: 2px 4px;
+  }
+  &.validation{
+    .global-input__input{
+      width: 100%;
+      height: 54px;
+      padding: 14px 16px;
+      background: var(--background);
+      border: 2px solid var(--error);
+      border-radius: 4px;
+    }
+    .global-input__label{
+      color:var(--error);
+    }
+  }
+}
