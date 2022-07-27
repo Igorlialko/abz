@@ -100,13 +100,8 @@ const HPForm = () => {
           {formErrors.file && <ErrorText error={{data: {message: formErrors.file}}}/>}
 
           {isLoading
-            ? <Preloader/>
-            : error &&
-            Object.keys(error.data.fails).map((el) =>
-              error.data.fails[el].map((text: string) =>
-                <ErrorText text={text} key={el}/>
-              )
-            )
+              ? <Preloader/>
+              : error && <ErrorText text={error.data.message}/>
           }
 
         </form>
